@@ -1,7 +1,9 @@
+#include <algorithm>
 #include <iomanip>
 #include <ios>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::cin;
 using std::cout;
@@ -9,6 +11,8 @@ using std::endl;
 using std::string;
 using std::setprecision;
 using std::streamsize;
+using std::sort;
+using std::vector;
 
 
 int main() {
@@ -26,18 +30,30 @@ int main() {
     cout << "Enter all your homework grades, "
         "followed by end-of-file: ";
 
-    int count = 0;
-    double sum = 0;
+    vector<double> homework;
 
     double x;
 
     while (cin >> x) {
-        count++;
-        sum += x;
+        homework.push_back(x);
     }
+
+    typedef vector<double>::size_type vec_sz;
+    vec_sz size = homework.size();
+
+    if (size == 0) {
+        cout << endl << "You must enter your grades. "
+            "Please try again." << endl;
+        return 1;
+    }
+
+    sort(homework.begin(), homework.end());
+    vec_sz mid = size / 2;
+    bool is_even = size % 2 == 0;
+    double median = is_even ? (homework[mid] + homework[mid - 1]) / 2 : homework[mid];
 
     streamsize prec = cout.precision();
     cout << "Your final grade is " << setprecision(3)
-        << 0.2 * midterm + 0.4 * final + 0.4 * sum / count
+        << 0.2 * midterm + 0.4 * final + 0.4 * median
         << setprecision(prec) << endl;
 }
