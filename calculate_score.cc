@@ -1,3 +1,5 @@
+// Copyright 2018, loganstone
+
 #include <algorithm>
 #include <iomanip>
 #include <ios>
@@ -5,55 +7,50 @@
 #include <string>
 #include <vector>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::setprecision;
-using std::streamsize;
-using std::sort;
-using std::vector;
-
-
 int main() {
-    cout << "Plase enter your first name: ";
+  std::cout << "Plase enter your first name: ";
 
-    string name;
-    cin >> name;
+  std::string name;
+  std::cin >> name;
 
-    const string greeting = "Hello , " + name + "!";
+  const std::string greeting = "Hello , " + name + "!";
 
-    cout << "Plase enter your midterm and final exam grades: ";
-    double midterm, final;
-    cin >> midterm >> final;
+  std::cout << "Plase enter your midterm and final exam grades: ";
+  double midterm, final;
+  std::cin >> midterm >> final;
 
-    cout << "Enter all your homework grades, "
-        "followed by end-of-file: ";
+  std::cout << "Enter all your homework grades, "
+    "followed by end-of-file: ";
 
-    vector<double> homework;
+  std::vector<double> homework;
 
-    double x;
+  double x;
 
-    while (cin >> x) {
-        homework.push_back(x);
-    }
+  while (std::cin >> x) {
+    homework.push_back(x);
+  }
 
-    typedef vector<double>::size_type vec_sz;
-    vec_sz size = homework.size();
+  typedef std::vector<double>::size_type vec_sz;
+  vec_sz size = homework.size();
 
-    if (size == 0) {
-        cout << endl << "You must enter your grades. "
-            "Please try again." << endl;
-        return 1;
-    }
+  if (size == 0) {
+    std::cout << std::endl << "You must enter your grades. "
+      "Please try again." << std::endl;
+    return 1;
+  }
 
-    sort(homework.begin(), homework.end());
-    vec_sz mid = size / 2;
-    bool is_even = size % 2 == 0;
-    double median = is_even ? (homework[mid] + homework[mid - 1]) / 2 : homework[mid];
+  std::sort(homework.begin(), homework.end());
+  vec_sz mid = size / 2;
+  bool is_even = size % 2 == 0;
+  double median;
+  if (is_even) {
+    median = (homework[mid] + homework[mid - 1]) / 2;
+  } else {
+    median = homework[mid];
+  }
 
-    streamsize prec = cout.precision();
-    cout << "Your final grade is " << setprecision(3)
-        << 0.2 * midterm + 0.4 * final + 0.4 * median
-        << setprecision(prec) << endl;
+  std::streamsize prec = std::cout.precision();
+  std::cout << "Your final grade is " << std::setprecision(3)
+    << 0.2 * midterm + 0.4 * final + 0.4 * median
+    << std::setprecision(prec) << std::endl;
 }

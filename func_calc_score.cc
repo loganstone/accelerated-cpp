@@ -1,3 +1,5 @@
+// Copyright 2018, loganstone
+
 #include <algorithm>
 #include <iomanip>
 #include <ios>
@@ -6,87 +8,76 @@
 #include <stdexcept>
 #include <vector>
 
-using std::cin;
-using std::cout;
-using std::domain_error;
-using std::endl;
-using std::istream;
-using std::string;
-using std::setprecision;
-using std::streamsize;
-using std::sort;
-using std::vector;
+double Median(std::vector<double> vec) {
+  typedef std::vector<double>::size_type vec_sz;
+  vec_sz size = vec.size();
 
-double median(vector<double> vec) {
-    typedef vector<double>::size_type vec_sz;
-    vec_sz size = vec.size();
-
-    if (size == 0) {
-        throw domain_error("median of an empty vector");
-    }
-    sort(vec.begin(), vec.end());
-    vec_sz mid = size / 2;
-    bool is_even = size % 2 == 0;
-    return is_even ? (vec[mid] + vec[mid - 1]) / 2 : vec[mid];
+  if (size == 0) {
+    throw std::domain_error("median of an empty std::vector");
+  }
+  std::sort(vec.begin(), vec.end());
+  vec_sz mid = size / 2;
+  bool is_even = size % 2 == 0;
+  return is_even ? (vec[mid] + vec[mid - 1]) / 2 : vec[mid];
 }
 
-double grade(double midterm, double final, double homework) {
-    return 0.2 * midterm + 0.4 * final + 0.4 * homework;
+double Grade(double midterm, double final, double homework) {
+  return 0.2 * midterm + 0.4 * final + 0.4 * homework;
 }
 
-double grade(double midterm, double final, const vector<double>& hw) {
-    if (hw.size() == 0) {
-        throw domain_error("student has done no homework");
-    }
-    return grade(midterm, final, median(hw));
+double Grade(double midterm, double final, const std::vector<double>& hw) {
+  if (hw.size() == 0) {
+    throw std::domain_error("student has done no homework");
+  }
+  return Grade(midterm, final, Median(hw));
 }
 
-istream& read_hw(istream& in, vector<double>& hw) {
-    if (in) {
-        hw.clear();
+std::istream& ReadHomework(std::istream& in, std::vector<double>* hw) {
+  if (in) {
+    hw->clear();
 
-        double x;
+    double x;
 
-        while (in >> x) {
-            hw.push_back(x);
-        }
-
-        in.clear();
+    while (in >> x) {
+      hw->push_back(x);
     }
-    return in;
+
+    in.clear();
+  }
+  return in;
 }
 
 
 int main() {
-    cout << "Plase enter your first name: ";
+  std::cout << "Plase enter your first name: ";
 
-    string name;
-    cin >> name;
+  std::string name;
+  std::cin >> name;
 
-    const string greeting = "Hello , " + name + "!";
+  const std::string greeting = "Hello , " + name + "!";
 
-    cout << "Plase enter your midterm and final exam grades: ";
-    double midterm, final;
-    cin >> midterm >> final;
+  std::cout << "Plase enter your midterm and final exam grades: ";
+  double midterm, final;
+  std::cin >> midterm >> final;
 
-    cout << "Enter all your homework grades, "
-        "followed by end-of-file: ";
+  std::cout << "Enter all your homework grades, "
+    "followed by end-of-file: ";
 
-    vector<double> homework;
+  std::vector<double> homework;
 
-    read_hw(cin, homework);
+  ReadHomework(std::cin, &homework);
 
-    try {
-        double final_grade = grade(midterm, final, homework);
-        streamsize prec = cout.precision();
-        cout << "Your final grade is " << setprecision(3)
-            << final_grade
-            << setprecision(prec) << endl;
-    } catch (domain_error){
-        cout << endl << "You must enter your grades. "
-            "Please try again." << endl;
-        return 1;
-    }
+  try {
+    double final_grade = Grade(midterm, final, homework);
+    std::streamsize prec = std::cout.precision();
+    std::cout << "Your final grade is " << std::setprecision(3)
+      << final_grade
+      << std::setprecision(prec) << std::endl;
+  } catch (std::domain_error) {
+    std::cout << std::endl << "You must enter your grades. "
+      "Please try again." << std::endl;
+    return 1;
+  }
 
-    return 0;
+  return 0;
 }
