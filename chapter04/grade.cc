@@ -1,5 +1,6 @@
 // Copyright 2018, loganstone
 
+#include <list>
 #include <stdexcept>
 #include <vector>
 
@@ -20,4 +21,23 @@ double Grade(double midterm, double final, const std::vector<double>& hw) {
 
 double Grade(const StudentInfo& s) {
   return Grade(s.midterm, s.final, s.homework);
+}
+
+bool IsFGrade(const StudentInfo& student) {
+  return Grade(student) < 60;
+}
+
+std::list<StudentInfo> ExtractFails(std::list<StudentInfo>* students) {
+  std::list<StudentInfo> fail;
+  std::list<StudentInfo>::iterator iter = students->begin();
+
+  while (iter != students->end()) {
+    if (IsFGrade(*iter)) {
+      fail.push_back(*iter);
+      iter = students->erase(iter);
+    } else {
+      iter++;
+    }
+  }
+  return fail;
 }
