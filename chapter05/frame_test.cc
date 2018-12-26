@@ -12,6 +12,7 @@ int main() {
   std::vector<std::string> v = Split(s);
   std::vector<std::string> f = Frame(v);
   std::vector<std::string> h = Hcat(v, f);
+  std::vector<std::string> r = Vcat(v, f);
 
   for (std::vector<std::string>::size_type i = 0; i != f.size(); i++) {
     std::cout << f[i] << std::endl;
@@ -19,6 +20,10 @@ int main() {
 
   for (std::vector<std::string>::size_type i = 0; i != h.size(); i++) {
     std::cout << h[i] << std::endl;
+  }
+
+  for (std::vector<std::string>::size_type i = 0; i != r.size(); i++) {
+    std::cout << r[i] << std::endl;
   }
   return 0;
 }
