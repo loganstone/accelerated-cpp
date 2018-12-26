@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cctype>
+#include <iterator>
 #include <string>
 #include <vector>
 
@@ -36,7 +37,7 @@ std::vector<std::string> Frame(const std::vector<std::string>& v) {
 std::vector<std::string> Vcat(const std::vector<std::string>& top,
                               const std::vector<std::string>& bottom) {
   std::vector<std::string> ret = top;
-  std::copy(bottom.begin(), bottom.end(), back_inserter(ret));
+  std::copy(bottom.begin(), bottom.end(), std::back_inserter(ret));
   return ret;
 }
 

@@ -7,6 +7,8 @@
 #include <vector>
 
 typedef std::string::size_type str_size;
+bool IsSpace(const char);
+bool IsNotSpace(const char);
 std::vector<std::string> Split(const std::string&);
 
 #endif
