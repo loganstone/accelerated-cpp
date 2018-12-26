@@ -36,7 +36,7 @@ std::list<StudentInfo> ExtractFails(std::list<StudentInfo>* students) {
       fail.push_back(*iter);
       iter = students->erase(iter);
     } else {
-      iter++;
+      ++iter;
     }
   }
   return fail;

@@ -15,7 +15,7 @@ int main() {
   v.push_back("rotor");
   v.push_back("loganstone");  // false
 
-  for (std::vector<std::string>::iterator i = v.begin(); i != v.end(); i++) {
+  for (std::vector<std::string>::iterator i = v.begin(); i != v.end(); ++i) {
     std::cout << IsPalindrome(*i) << std::endl;
   }
   return 0;
