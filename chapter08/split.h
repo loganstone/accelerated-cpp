@@ -1,22 +1,18 @@
 // Copyright 2018, loganstone
 
-#ifndef SPLIT_H_
-#define SPLIT_H_
+#ifndef CHAPTER08_SPLIT_H_
+#define CHAPTER08_SPLIT_H_
 
 #include <algorithm>
 #include <string>
 #include <vector>
 
 typedef std::string::size_type str_size;
-bool IsSpace(const char c) {
-  return std::isspace(c);
-}
+bool IsSpace(const char c) { return std::isspace(c); }
 
-bool IsNotSpace(const char c) {
-  return !std::isspace(c);
-}
+bool IsNotSpace(const char c) { return !std::isspace(c); }
 
-template<class Out>
+template <class Out>
 void Split(const std::string& s, Out os) {
   std::string::const_iterator i = s.begin();
 
@@ -32,4 +28,4 @@ void Split(const std::string& s, Out os) {
   }
 }
 
-#endif
+#endif  // CHAPTER08_SPLIT_H_

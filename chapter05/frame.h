@@ -1,7 +1,7 @@
 // Copyright 2018, loganstone
 
-#ifndef FRAME_H_
-#define FRAME_H_
+#ifndef CHAPTER05_FRAME_H_
+#define CHAPTER05_FRAME_H_
 
 #include <string>
 #include <vector>
@@ -14,4 +14,4 @@ std::vector<std::string> Vcat(const std::vector<std::string>&,
 std::vector<std::string> Hcat(const std::vector<std::string>&,
                               const std::vector<std::string>&);
 
-#endif
+#endif  // CHAPTER05_FRAME_H_

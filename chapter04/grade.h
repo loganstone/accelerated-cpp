@@ -1,7 +1,7 @@
 // Copyright 2018, loganstone
 
-#ifndef GRADE_H_
-#define GRADE_H_
+#ifndef CHAPTER04_GRADE_H_
+#define CHAPTER04_GRADE_H_
 
 #include <list>
 #include <vector>
@@ -13,4 +13,4 @@ double Grade(const StudentInfo&);
 bool IsFGrade(const StudentInfo&);
 std::list<StudentInfo> ExtractFails(std::list<StudentInfo>);
 
-#endif
+#endif  // CHAPTER04_GRADE_H_

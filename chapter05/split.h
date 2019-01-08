@@ -1,7 +1,7 @@
 // Copyright 2018, loganstone
 
-#ifndef SPLIT_H_
-#define SPLIT_H_
+#ifndef CHAPTER05_SPLIT_H_
+#define CHAPTER05_SPLIT_H_
 
 #include <string>
 #include <vector>
@@ -11,4 +11,4 @@ bool IsSpace(const char);
 bool IsNotSpace(const char);
 std::vector<std::string> Split(const std::string&);
 
-#endif
+#endif  // CHAPTER05_SPLIT_H_

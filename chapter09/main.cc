@@ -4,8 +4,8 @@
 #include <iomanip>
 #include <ios>
 #include <iostream>
-#include <string>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 #include "student.h"
@@ -31,8 +31,8 @@ int main() {
     try {
       double final_grage = (*it).Grade();
       std::streamsize prec = std::cout.precision();
-      std::cout << std::setprecision(3)
-                << final_grage << std::setprecision(prec);
+      std::cout << std::setprecision(3) << final_grage
+                << std::setprecision(prec);
     } catch (std::domain_error e) {
       std::cout << e.what();
     }

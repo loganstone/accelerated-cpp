@@ -1,10 +1,10 @@
 // Copyright 2018, loganstone
 
-#ifndef IS_PALINDROME_H_
-#define IS_PALINDROME_H_
+#ifndef CHAPTER06_IS_PALINDROME_H_
+#define CHAPTER06_IS_PALINDROME_H_
 
 #include <string>
 
 bool IsPalindrome(const std::string&);
 
-#endif
+#endif  // CHAPTER06_IS_PALINDROME_H_

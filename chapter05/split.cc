@@ -6,15 +6,11 @@
 #include <vector>
 #include "split.h"
 
-bool IsSpace(const char c) {
-  return std::isspace(c);
-}
+bool IsSpace(const char c) { return std::isspace(c); }
 
-bool IsNotSpace(const char c) {
-  return !std::isspace(c);
-}
+bool IsNotSpace(const char c) { return !std::isspace(c); }
 
-std::vector<std::string>Split(const std::string& s) {
+std::vector<std::string> Split(const std::string& s) {
   std::string::const_iterator i = s.begin();
   std::vector<std::string> ret;
 

@@ -57,7 +57,7 @@ class Vec {
   void Uncrate();
 
   void Grow();
-  void Unchecked_append(const T&);
+  void UncheckedAppend(const T&);
 };
 
 template <class T>
@@ -115,7 +115,7 @@ void Vec<T>::Grow() {
 }
 
 template <class T>
-void Vec<T>::Unchecked_append(const T& val) {
+void Vec<T>::UncheckedAppend(const T& val) {
   alloc.construct(avail++, val);
 }
 

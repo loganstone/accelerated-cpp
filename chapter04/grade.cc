@@ -23,9 +23,7 @@ double Grade(const StudentInfo& s) {
   return Grade(s.midterm, s.final, s.homework);
 }
 
-bool IsFGrade(const StudentInfo& student) {
-  return Grade(student) < 60;
-}
+bool IsFGrade(const StudentInfo& student) { return Grade(student) < 60; }
 
 std::list<StudentInfo> ExtractFails(std::list<StudentInfo>* students) {
   std::list<StudentInfo> fail;

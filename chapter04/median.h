@@ -1,13 +1,13 @@
 // Copyright 2018, loganstone
 
-#ifndef MEDIAN_H_
-#define MEDIAN_H_
+#ifndef CHAPTER04_MEDIAN_H_
+#define CHAPTER04_MEDIAN_H_
 
 #include <algorithm>
 #include <stdexcept>
 #include <vector>
 
-template<class T>
+template <class T>
 T Median(std::vector<T> vec) {
   typedef typename std::vector<T>::size_type vec_sz;
   vec_sz size = vec.size();
@@ -21,4 +21,4 @@ T Median(std::vector<T> vec) {
   return is_even ? (vec[mid] + vec[mid - 1]) / 2 : vec[mid];
 }
 
-#endif
+#endif  // CHAPTER04_MEDIAN_H_

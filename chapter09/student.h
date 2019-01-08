@@ -11,16 +11,17 @@
 
 class Student {
  public:
-    Student();
-    explicit Student(std::istream&);
-    std::string Name() const { return n; }
-    bool Valid() const { return !homework.empty(); }
-    double Grade() const;
-    std::istream& Read(std::istream&);
+  Student();
+  explicit Student(std::istream&);
+  std::string Name() const { return n; }
+  bool Valid() const { return !homework.empty(); }
+  double Grade() const;
+  std::istream& Read(std::istream&);
+
  private:
-    std::string n;
-    double midterm, final;
-    std::vector<double> homework;
+  std::string n;
+  double midterm, final;
+  std::vector<double> homework;
 };
 
 double Grade(double, double, double);
@@ -28,7 +29,7 @@ double Grade(double, double, const std::vector<double>&);
 bool Compare(const Student&, const Student&);
 std::istream& ReadHomework(std::istream&, std::vector<double>*);
 
-Student::Student(): midterm(0), final(0) {}
+Student::Student() : midterm(0), final(0) {}
 
 Student::Student(std::istream& is) { Read(is); }
 
@@ -38,9 +39,7 @@ std::istream& Student::Read(std::istream& in) {
   return in;
 }
 
-double Student::Grade() const {
-  return ::Grade(midterm, final, homework);
-}
+double Student::Grade() const { return ::Grade(midterm, final, homework); }
 
 double Grade(double midterm, double final, double homework) {
   return 0.2 * midterm + 0.4 * final + 0.4 * homework;
@@ -53,9 +52,7 @@ double Grade(double midterm, double final, const std::vector<double>& hw) {
   return Grade(midterm, final, Median(hw));
 }
 
-bool Compare(const Student& x, const Student& y) {
-  return x.Name() < y.Name();
-}
+bool Compare(const Student& x, const Student& y) { return x.Name() < y.Name(); }
 
 std::istream& ReadHomework(std::istream& in, std::vector<double>* hw) {
   if (in) {

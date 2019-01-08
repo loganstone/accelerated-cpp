@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <vector>
 
-template<class T>
+template <class T>
 T Median(std::vector<T> vec) {
   typedef typename std::vector<T>::size_type vec_sz;
   vec_sz size = vec.size();

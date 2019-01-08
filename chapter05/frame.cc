@@ -55,7 +55,6 @@ std::vector<std::string> Hcat(const std::vector<std::string>& left,
 
     s += std::string(divide_str_position - s.size(), ' ');
 
-
     if (j != right.size()) {
       s += right[j++];
     }

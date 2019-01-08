@@ -20,7 +20,7 @@ int main() {
   std::cin >> midterm >> final;
 
   std::cout << "Enter all your homework grades, "
-    "followed by end-of-file: ";
+               "followed by end-of-file: ";
 
   std::vector<double> homework;
 
@@ -34,8 +34,10 @@ int main() {
   vec_sz size = homework.size();
 
   if (size == 0) {
-    std::cout << std::endl << "You must enter your grades. "
-      "Please try again." << std::endl;
+    std::cout << std::endl
+              << "You must enter your grades. "
+                 "Please try again."
+              << std::endl;
     return 1;
   }
 
@@ -51,6 +53,6 @@ int main() {
 
   std::streamsize prec = std::cout.precision();
   std::cout << "Your final grade is " << std::setprecision(3)
-    << 0.2 * midterm + 0.4 * final + 0.4 * median
-    << std::setprecision(prec) << std::endl;
+            << 0.2 * midterm + 0.4 * final + 0.4 * median
+            << std::setprecision(prec) << std::endl;
 }

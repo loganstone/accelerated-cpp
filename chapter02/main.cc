@@ -25,8 +25,7 @@ int main() {
         std::cout << greeting;
         c += greeting.size();
       } else {
-        if (r == 0 || r == rows - 1 ||
-            c == 0 || c == cols - 1) {
+        if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
           std::cout << "*";
         } else {
           std::cout << " ";

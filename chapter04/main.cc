@@ -4,8 +4,8 @@
 #include <iomanip>
 #include <ios>
 #include <iostream>
-#include <string>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 #include "grade.h"
@@ -26,12 +26,12 @@ int main() {
 
   for (std::vector<StudentInfo>::size_type i = 0; i != students.size(); i++) {
     std::cout << students[i].name
-      << std::string(maxlen + 1 - students[i].name.size(), ' ');
+              << std::string(maxlen + 1 - students[i].name.size(), ' ');
     try {
       double final_grage = Grade(students[i]);
       std::streamsize prec = std::cout.precision();
-      std::cout << std::setprecision(3)
-        << final_grage << std::setprecision(prec);
+      std::cout << std::setprecision(3) << final_grage
+                << std::setprecision(prec);
     } catch (std::domain_error e) {
       std::cout << e.what();
     }
